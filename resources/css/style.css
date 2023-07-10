@@ -20,7 +20,7 @@
 }
 
 .flex{display: flex;}
-.col-flex{display: flex; flex-direction: columnl;}
+.col-flex{display: flex; flex-direction: column;}
 
 .aic{align-items: center;}
 .aifs{align-items: flex-start;}
@@ -42,6 +42,12 @@ a{
   text-decoration: none;
 }
 
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .btn_box{
   display: flex;
   gap: .5rem;
@@ -49,7 +55,7 @@ a{
 
 .btn{
   padding: .5rem 1.1rem;
-  background-color: #4169e1;
+  background-color: #335ddd;
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
@@ -74,6 +80,7 @@ header{
   top: 0;
   left: 0;
   z-index: 999;
+  background-color: #fff;
 }
 
 header .wrap{
@@ -125,7 +132,7 @@ header .utility{
 }
 
 .depth_box:hover .depth1{
-  background-color: #4169e1;
+  background-color: #335ddd;
   color: #fff;
 }
 
@@ -148,3 +155,89 @@ header .utility{
   padding-bottom: 5px;
   font-weight: 900;
 }
+
+/* 비주얼 */
+
+.visual{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.visual .item{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.visual .item > div{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.visual .item img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: brightness(.7);
+}
+
+.visual .item .text_box{
+  width: 100%;
+  padding-top: 70px;
+  gap: 2rem;
+}
+
+.visual .item h1{
+  font-size: 5rem;
+  letter-spacing: -4px;
+  line-height: 1.1;
+  text-align: center;
+  color: #fff;
+}
+
+.visual .item p {
+  font-size: 16px;
+  font-family: 'Microsoft Phangspa';
+  font-weight: 100;
+  color: #fff;
+}
+
+.visual .item:nth-child(1){ animation: visual_item1 9s infinite; z-index: 3;}
+.visual .item:nth-child(2){ animation: visual_item1 9s infinite; z-index: 2; animation-delay: 3s;}
+.visual .item:nth-child(3){ animation: visual_item1 9s infinite; z-index: 1; animation-delay: 6s;}
+
+@keyframes visual_item1 {
+  0%, 25%{opacity: 1;}
+  33.33%, 92%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@keyframes visual_item2 {
+  0%, 25%{opacity: 1;}
+  33.33%, 100%{opacity: 0;}
+}
+
+.visual .state_btn{
+  color: #fff;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  font-size: 1.5rem;
+}
+
+.visual input:checked + label i:nth-child(1),
+.visual .state_btn i:nth-child(2){ 
+  display: none; 
+}
+
+.visual input:checked + label i:nth-child(2){ display: flex; }
