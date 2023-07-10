@@ -1,13 +1,7 @@
 @font-face {
   font-family: "Noto";
-  src: url("../fonts/NotoSans/NotoSansCJKkr-Medium.otf") format("opentype");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "Noto";
   src: url("../fonts/NotoSans/NotoSansCJKkr-Regular.otf") format("opentype");
-  font-weight: 100;
+  font-weight: normal;
 }
 
 @font-face {
@@ -41,4 +35,116 @@
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+}
+
+.btn_box{
+  display: flex;
+  gap: .5rem;
+}
+
+.btn{
+  padding: .5rem 1.1rem;
+  background-color: #4169e1;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.btn_box.full,
+.btn_box.full .btn{
+  width: 100%;
+}
+
+/* 헤더 */
+
+header{
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 1rem #0001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+header .wrap{
+  height: 100%;
+}
+
+header .logo_box,
+header .utility{
+  width: 300px;
+}
+
+.menu_nav{
+  height: 40px;
+}
+
+.depth_box{
+  position: relative;
+  z-index: 10;
+}
+
+.sub_menu{
+  position: absolute;
+  top: 100%;
+  z-index: -1;
+  max-height: 0;
+  overflow: hidden;
+  transition: .2s;
+  background-color: #fff;
+  box-shadow: 0 0 3rem #0001;
+}
+
+.depth_box:hover .sub_menu{
+  max-height: 120px;
+}
+
+.depth1, .depth2{
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background-color: #fff;
+  transition: .2s;
+}
+
+.depth1{
+  font-size: 17px;
+}
+
+.depth_box:hover .depth1{
+  background-color: #4169e1;
+  color: #fff;
+}
+
+.depth2{
+  height: 40px;
+  padding: 0 25px;
+  justify-content: flex-start;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.depth2:hover{
+  background-color: #4169e11f;
+}
+
+.depth2::before{
+  content: "•";
+  display: block;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  font-weight: 900;
 }
