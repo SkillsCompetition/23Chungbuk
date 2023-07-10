@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Noto";
+  src: url("../fonts/NotoSans/NotoSansCJKkr-Medium.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url("../fonts/NotoSans/NotoSansCJKkr-Regular.otf") format("opentype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Noto";
+  src: url("../fonts/NotoSans/NotoSansCJKkr-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  letter-spacing: -1px;
+  box-sizing: border-box;
+  word-break: keep-all;
+  font-family: "Noto";
+}
+
+.flex{display: flex;}
+.col-flex{display: flex; flex-direction: columnl;}
+
+.aic{align-items: center;}
+.aifs{align-items: flex-start;}
+.aife{align-items: flex-end;}
+
+.jcc{justify-content: center;}
+.jcsb{justify-content: space-between;}
+.jcfs{justify-content: flex-start;}
+.jcfe{justify-content: flex-end;}
+
+.wrap{
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
