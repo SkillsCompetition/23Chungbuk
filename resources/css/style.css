@@ -103,8 +103,24 @@ header .utility{
 
 .menu_nav{
   height: 40px;
+  position: relative;
 }
 
+.menu_nav .animation{
+  width: 110%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .3rem;
+  color: #335ddd;
+  animation: header_animation 2s infinite;
+}
+
+@keyframes header_animation {
+  0%, 100%{width: 115%;}
+  50%{width: 125%;}
+}
 .depth_box{
   position: relative;
   z-index: 10;
@@ -273,6 +289,12 @@ header .utility{
   width: 80px;
   height: 3px;
   background-color: #335ddd;
+  animation: title 1.5s infinite;
+}
+
+@keyframes title {
+  0%, 100%{width: 80px;}
+  30%, 50%{width: 30px;}
 }
 
 .title p{
@@ -673,6 +695,17 @@ footer .sns_icon a:hover{
   color: #335ddd;
 }
 
+footer .right > i{
+  font-size: 2rem;
+  color: #335ddd;
+  animation: footer_animation 2s infinite;
+}
+
+@keyframes footer_animation {
+  0%, 100%{margin-right: 0;}
+  50%{margin-right: 20px;}
+}
+
 /* 서브페이지 */
 
 .memorial{
@@ -786,6 +819,53 @@ footer .sns_icon a:hover{
   font-size: 1.2rem;
 }
 
+.mobile_menu{
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transition: .1s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+.mobile_menu label{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #0005;
+}
+
+.mobile_menu > div{
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -50%;
+  transition: .2s .1s;
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+.mobile_menu > div .menu{
+  width: 100%;
+}
+
+.mobile_menu .menu .sub_menu{
+  position: relative;
+}
+
+#mobile:checked + .mobile_menu{
+  opacity: 1;
+  pointer-events: all;
+}
+
+#mobile:checked + .mobile_menu div{
+  right: 0;
+}
+
 @media (max-width:760px) {
   html{
     font-size: 12px;
@@ -796,7 +876,8 @@ footer .sns_icon a:hover{
     overflow-x: clip;
   }
 
-  header .menu_nav{
+  header .menu_nav,
+  header .utility{
     display: none;
   }
 
@@ -809,7 +890,7 @@ footer .sns_icon a:hover{
     align-items: center;
   }
 
-  header .logo_box, header .utility {
+  header .logo_box{
     width: 200px;
   }
 
