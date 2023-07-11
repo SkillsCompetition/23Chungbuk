@@ -415,6 +415,7 @@ header .utility{
 .visited .info_box .box i{
   width: 25px;
   height: 25px;
+  border-radius: 10px;
 }
 
 .visited .info_box .box:nth-child(1) i{background-color: tomato;}
@@ -444,10 +445,23 @@ header .utility{
   transition: .2s;
 }
 
+.notice #news1:checked ~ .label_box label:nth-child(1),
+.notice #news2:checked ~ .label_box label:nth-child(2),
+.notice #news3:checked ~ .label_box label:nth-child(3){
+  background-color: #335ddd;
+  color: #fff;
+}
+
 .notice .container{
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+.notice #news1:checked ~ .wrapper .container:nth-child(1),
+.notice #news2:checked ~ .wrapper .container:nth-child(2),
+.notice #news3:checked ~ .wrapper .container:nth-child(3){
+  display: grid;
 }
 
 .notice .container .item{
@@ -493,4 +507,163 @@ header .utility{
   justify-content: center !important;
   align-items: center !important;
   cursor: pointer;
+}
+
+.gallery .circle{
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin: 10px;
+}
+
+.gallery .circle img{
+  font-size: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: .3s, z-index 0s .3s;
+}
+
+.gallery .circle img:nth-child(1){
+  transform: translate(0px, -10px);
+  clip-path: polygon(50% 50%,.5em 1.2em,0 1em,0 0,100% 0,100% 1em,calc(100% - .5em) 1.2em);
+}
+
+.gallery .circle img:nth-child(2){
+  transform: translate(-10px, 0px);
+  clip-path: polygon(50% 50%,1.2em .5em,1em 0,0 0,0 100%,1em 100%,1.2em calc(100% -  .5em));
+}
+
+.gallery .circle img:nth-child(3){
+  transform: translate(0px, 10px);
+  clip-path: polygon(50% 50%,.5em calc(100% - 1.2em),0 calc(100% - 1em),0 100%,100% 100%,100% calc(100% - 1em),calc(100% - .5em) calc(100% - 1.2em));
+}
+
+.gallery .circle img:nth-child(4){
+  transform: translate(10px, 0);
+  clip-path: polygon(50% 50%,calc(100% - 1.2em) .5em,calc(100% - 1em) 0,100% 0,100% 100%,calc(100% - 1em) 100%,calc(100% - 1.2em) calc(100% - .5em));
+}
+
+.gallery .circle:hover img{
+  transform: translate(0, 0);
+}
+
+.gallery .circle img:hover{
+  font-size: 400px;
+  z-index: 1;
+  transition: transform .2s, font-size .3s .2s, z-index 0s;
+}
+
+.gallery .wrapper{
+  position: relative;
+  width: 850px;
+  height: 300px;
+}
+
+.gallery .container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  perspective: 1400px;
+  transform: translate(-50%, -50%) translateZ(-1400px);
+}
+
+.gallery .rotater{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-10deg);
+  animation: rotate 20s infinite linear;
+}
+
+@keyframes rotate {
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(-360deg);
+  }
+}
+
+.gallery .wrapper .item{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.gallery .wrapper .item:nth-child(1){transform: translate(-50%, -50%) rotateY(0) translateZ(300px);}
+.gallery .wrapper .item:nth-child(2){transform: translate(-50%, -50%) rotateY(45deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(3){transform: translate(-50%, -50%) rotateY(90deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(4){transform: translate(-50%, -50%) rotateY(135deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(5){transform: translate(-50%, -50%) rotateY(180deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(6){transform: translate(-50%, -50%) rotateY(225deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(7){transform: translate(-50%, -50%) rotateY(270deg) translateZ(300px);}
+.gallery .wrapper .item:nth-child(8){transform: translate(-50%, -50%) rotateY(315deg) translateZ(300px);}
+
+.gallery .shadow{
+  top: 140%;
+  pointer-events: none;
+  opacity: .3;
+}
+
+.gallery .shadow .rotater{
+  transform: rotateY(180deg);
+}
+
+.gallery .shadow::after{
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, white 50%, transparent 90% 100%);
+}
+
+/* 푸터 */
+
+footer{
+  padding: 60px 0;
+  background-color: #f4f6f8;
+}
+
+footer .menu{
+  gap: 1rem;
+}
+
+footer .menu a{
+  color: gray;
+}
+
+footer .left p{
+  font-size: 15px;
+  font-family: "Microsoft Phangspa";
+  color: gray;
+}
+
+footer .left{
+  gap: .5rem;
+}
+
+footer .sns_icon{
+  gap: 1rem;
+}
+
+footer .sns_icon a{
+  font-size: 1.5rem;
+  transition: .2s;
+}
+
+footer .sns_icon a:hover{
+  color: #335ddd;
 }
