@@ -96,6 +96,11 @@ header .utility{
   width: 300px;
 }
 
+.logo{
+  width: 200px;
+  height: 70px;
+}
+
 .menu_nav{
   height: 40px;
 }
@@ -142,7 +147,7 @@ header .utility{
 
 .depth2{
   height: 40px;
-  padding: 0 25px;
+  padding: 0 15px;
   justify-content: flex-start;
   font-size: 15px;
   font-weight: 100;
@@ -646,7 +651,7 @@ footer .menu a{
 }
 
 footer .left p{
-  font-size: 15px;
+  font-size: .9rem;
   font-family: "Microsoft Phangspa";
   color: gray;
 }
@@ -666,4 +671,149 @@ footer .sns_icon a{
 
 footer .sns_icon a:hover{
   color: #335ddd;
+}
+
+/* 서브페이지 */
+
+.memorial{
+  gap: 3rem;
+}
+
+.memorial h3{
+  margin-bottom: 1rem;
+}
+
+.always .container{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+.always .container .item{
+  height: 320px;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 0 3rem #0001;
+  overflow: hidden;
+}
+
+.always .container .item img{
+  width: 40%;
+}
+
+.always .container .item .text_box{
+  width: 60%;
+  padding: 40px;
+}
+
+.always .container .item small{
+  line-height: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #335ddd;
+}
+
+.always .container .item h1{
+  line-height: 1;
+  margin-top: 2px;
+  margin-bottom: 16px;
+}
+
+.always .container .item .top p{
+  color: gray;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.always .container .item .bottom p{
+  color: #335ddd8f;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.always .container .item .bottom p.notice{
+  color: tomato;
+}
+
+.always .container .item .bottom i{
+  margin-right: .5rem;
+}
+
+.special .container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.special .container .item{
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 3rem #0001;
+}
+
+.special .container .item img{
+  height: 300px;
+}
+
+.special .container .item .text_box{
+  padding: 30px;
+}
+
+.special .container .item .text_box small{
+  font-size: 14px;
+  color: #335ddd;
+  font-weight: bold;
+}
+
+.special .container .item .text_box h3{
+  line-height: 1.5;
+}
+
+.special .container .item .text_box p{
+  font-size: 14px;
+  color: gray;
+}
+
+.mobile{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #335ddd;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+@media (max-width:760px) {
+  html{
+    font-size: 12px;
+  }
+
+  .wrap{
+    max-width: 760px;
+    overflow-x: clip;
+  }
+
+  header .menu_nav{
+    display: none;
+  }
+
+  .notice .container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .logo_box, header .utility {
+    width: 200px;
+  }
+
+  .mobile{
+    display: flex;
+  }
 }
