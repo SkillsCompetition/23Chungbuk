@@ -5,7 +5,7 @@ const App = {
   init(){
     App.hook();
 
-    VideoPlayer.init();
+    if(location.pathname.includes("video")) VideoPlayer.init();
   },
 
   hook(){
@@ -414,6 +414,26 @@ const VideoPlayer = {
 
   }
 
+}
+
+const Modal = {
+  template : (target) => $($("template")[0].content).find(`.${target}_modal`).clone(),
+
+  open(target){
+    $("body").css("overflow", "hidden");
+
+    $(".modal")
+      .addClass("open")
+      .html(Modal.template(target));
+  },
+
+  close(){
+    $("body").css("overflow", "");
+
+    $(".modal")
+      .removeClass("open")
+      .html("");
+  }
 }
 
 $(() => App.init())
