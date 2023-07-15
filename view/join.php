@@ -10,21 +10,21 @@
         <div class="inputs">
           <div class="btn_box">
             <div class="input_box chkSign">
+              <input type="text" name="userid" id="userid" required>
               <label for="userid">아이디</label>
-              <input type="text" name="userid" id="userid">
             </div>
             
             <button type="button" onclick="vali()" class="vali btn" disabled>아이디 중복확인</button                       >
           </div>
 
           <div class="input_box">
+            <input type="password" name="password" id="password" required>
             <label for="password">비밀번호</label>
-            <input type="password" name="password" id="password">
           </div>
 
           <div class="input_box">
+            <input type="password" name="passwordChk" id="passwordChk" required>
             <label for="passwordChk">비밀번호 확인</label>
-            <input type="password" name="passwordChk" id="passwordChk">
           </div>
 
           <button class="btn">회원가입</button>
@@ -70,7 +70,10 @@
     const pass = $('#password').val();
     const passChk = $('#passwordChk').val();
 
-    if(!(/[A-z]/g).test(pass) || !(/\d/g).test(pass) || pass.length < 8) return alert("비밀번호는 영문과 숫자조합을 포함한 8자리 이상이여야합니다.");
+    if(!(/[A-z]/g).test(pass) ||
+       !(/\d/g).test(pass) ||
+       !(/\W/g).test(pass) ||
+       pass.length < 8) return alert("비밀번호는 영문과 숫자, 특수문자를 포함한 8자리 이상이여야합니다.");
     if(pass != passChk) return alert("비밀번호와 비밀번호 확인 값이 다릅니다.");
 
     $(".join")[0].submit();

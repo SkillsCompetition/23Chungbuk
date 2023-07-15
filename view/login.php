@@ -9,13 +9,13 @@
       <form class="login" action="/login" method="POST">
         <div class="inputs">
           <div class="input_box chkSign">
+            <input type="text" name="userid" id="userid" required>
             <label for="userid">아이디</label>
-            <input type="text" name="userid" id="userid">
           </div>
 
           <div class="input_box">
+            <input type="password" name="password" id="password" required>
             <label for="password">비밀번호</label>
-            <input type="password" name="password" id="password">
           </div>
 
           <button class="btn">회원가입</button>

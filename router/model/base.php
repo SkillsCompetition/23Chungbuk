@@ -16,9 +16,9 @@
       return $q;
     }
 
-    public static function all($sql = ""){
+    public static function all($sql = "", $arr = []){
       $table = get_called_class();
-      return self::mq("SELECT * FROM $table $sql")->fetchAll();
+      return self::mq("SELECT * FROM $table $sql", $arr)->fetchAll();
     }
 
     public static function find($sql, $arr = []){
@@ -40,8 +40,25 @@
 
       return self::$pdo->lastinsertid();
     }
+
+    public static function update($sql, $condition, $arr = []){
+      $table = get_called_class();
+
+      $condition = is_array($condition) ? $condition : [$condition];
+      $update = implode(" = ?, ", array_keys($arr))." = ?";
+
+      self::mq("UPDATE $table SET $update WHERE $sql", array_merge(array_values($arr), $condition));
+    }
+
+
+    public static function delete($sql, $arr = []){
+      $table = get_called_class();
+
+      self::mq("DELETE FROM $table WHERE $sql", $arr);
+    }
   }
 
   class user extends DB {}
   class preview extends DB {}
+  class reservation extends DB {}
 ?>

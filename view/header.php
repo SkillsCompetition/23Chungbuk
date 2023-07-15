@@ -34,8 +34,8 @@
         <div class="depth_box">
           <a href="#" class="depth1">투어 정보</a>
           <div class="sub_menu">
-            <a href="#" class="depth2">관람 정보</a>            
-            <a href="#" class="depth2">관람 일정</a>            
+            <a href="/preview_info" class="depth2">관람 정보</a>            
+            <a href="/calendar" class="depth2">관람 일정</a>            
           </div>
         </div>
         <div class="depth_box">

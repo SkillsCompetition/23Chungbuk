@@ -10,14 +10,6 @@ const App = {
 
   hook(){
     $(document)
-      .on("keydown", document, VideoPlayer.shoutCut)
-      .on("change", "#videoLoader", VideoPlayer.fileLoad)
-      .on("mousedown", ".video_box .current_bar", VideoPlayer.mouse.down)
-      .on("mouseup mouseleave", ".video_box", VideoPlayer.mouse.up)
-      .on("mousemove click", ".video_box .video", VideoPlayer.mouse.move)
-      .on("click", ".video_list .item", VideoPlayer.selectVideo)
-      .on("click", ".prev, .next", VideoPlayer.moveVideo)
-      .on("click", ".video_box .prograss .item", VideoPlayer.clickSnapshot)
   }
 
 }
@@ -43,6 +35,16 @@ const VideoPlayer = {
   },
 
   hook(){
+    $(document)
+      .on("keydown", document, VideoPlayer.shoutCut)
+      .on("change", "#videoLoader", VideoPlayer.fileLoad)
+      .on("mousedown", ".video_box .current_bar", VideoPlayer.mouse.down)
+      .on("mouseup mouseleave", ".video_box", VideoPlayer.mouse.up)
+      .on("mousemove click", ".video_box .video", VideoPlayer.mouse.move)
+      .on("click", ".video_list .item", VideoPlayer.selectVideo)
+      .on("click", ".prev, .next", VideoPlayer.moveVideo)
+      .on("click", ".video_box .prograss .item", VideoPlayer.clickSnapshot)
+
     VideoPlayer.video.addEventListener("timeupdate", () => {
       VideoPlayer.checkTimeOver();
       VideoPlayer.changeCurrentBar();
