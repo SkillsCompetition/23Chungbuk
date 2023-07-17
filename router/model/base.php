@@ -41,13 +41,13 @@
       return self::$pdo->lastinsertid();
     }
 
-    public static function update($sql, $condition, $arr = []){
+    public static function update($sql, $condition, $data = []){
       $table = get_called_class();
 
-      $condition = is_array($condition) ? $condition : [$condition];
-      $update = implode(" = ?, ", array_keys($arr))." = ?";
+      $update = implode(" = ?, ", array_keys($data))." = ?";
+      array_push($data, $condition);
 
-      self::mq("UPDATE $table SET $update WHERE $sql", array_merge(array_values($arr), $condition));
+      self::mq("UPDATE $table SET $update WHERE $sql", array_values($data));
     }
 
 

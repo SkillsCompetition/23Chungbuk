@@ -12,6 +12,20 @@
     view("video");
   });
 
+  get("/calendar", function(){
+    $preview = preview::all();
+    view("preview_calendar", get_defined_vars());
+  });
+
+  get("/preview_info", function(){
+    $preview = preview::all();
+    view("preview_info", get_defined_vars());
+  });
+
+  get("/chkLogin", function(){
+    echo(boolval(@USER));
+  });
+
   middleware("notUser", function(){
 
     get("/checkID/$", function($id){
@@ -65,14 +79,58 @@
       move("로그아웃이 완료되었습니다.", "/");
     });
 
-    get("/calendar", function(){
-      $preview = preview::all();
-      view("preview_calendar", get_defined_vars());
+    get("/xls_download", function(){
+      header("Content-type: application/vnd.ms-excel; charset=utf-8");
+      header("Content-Disposition: attachment; filename=list.xls");
+
+      $xls = "<table border='1'>";
+      $xls .= "<tr>
+                <td>관람정보 제목</td>
+                <td>관람정보 내용</td>
+                <td>관람 날짜</td>
+                <td>관람 주소</td>
+              </tr>";
+      
+      $data = preview::findAll("preview_dt >= ? && preview_dt <= ?", [G["start_dt"], G["end_dt"]]);
+
+      foreach($data as $v){
+        $xls .= "
+          <tr>
+            <td>".$v["title"]."</td>
+            <td>".$v["content"]."</td>
+            <td>".$v["preview_dt"]."</td>
+            <td>".$v["address"]."</td>
+          </tr>
+        ";
+      }
+
+      $xls .= "</table>";
+
+      echo "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' >";
+      echo $xls;
     });
 
-    get("/preview_info", function(){
-      $preview = preview::all();
-      view("preview_info", get_defined_vars());
+    get("/reservation", function(){
+      $reservation = DB::mq("SELECT R.*, P.title, P.address 
+                              FROM reservation AS R 
+                              LEFT JOIN preview AS P 
+                              ON P.idx = R.preview_idx
+                              WHERE R.userid = ? && R.status != 'cancel'
+                              ORDER BY R.idx DESC", USER["userid"]);
+
+      view("reservation", get_defined_vars());
+    });
+
+    post("/reservation", function(){
+      reservation::insert(P);
+
+      move("예약이 완료되었습니다.", "/reservation");
+    });
+
+    get("/cancel/reservation/$", function($idx){
+      reservation::update("idx = ?", $idx, [ "status" => "cancel" ]);
+
+      move("예약이 취소되었습니다.");
     });
 
   });
@@ -86,7 +144,7 @@
                               LEFT JOIN preview AS P 
                               ON P.idx = R.preview_idx
                               WHERE R.reservation_dt >= ?
-                              ORDER BY R.create_dt DESC", date("Y-m-d"));
+                              ORDER BY R.idx DESC", date("Y-m-d"));
 
       view("admin", get_defined_vars());
     });

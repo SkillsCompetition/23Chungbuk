@@ -5,7 +5,7 @@
   }
 
   function user(){
-    err(!USER, "회원만 이용할 수 있습니다.");
+    err(!USER, "로그인을 먼저 진행해 주세요.");
   }
 
   function admin(){

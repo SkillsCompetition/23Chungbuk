@@ -46,8 +46,8 @@
             </tr>
             <?php foreach($preview_data as $v): ?>
               <tr>
-                <td><?= $v["title"] ?></td>
-                <td><?= $v["content"] ?></td>
+                <td><p><?= $v["title"] ?></p></td>
+                <td><p><?= $v["content"] ?></p></td>
                 <td><?= $v["preview_dt"] ?></td>
                 <td><?= $v["address"] ?></td>
                 <td>
@@ -129,7 +129,7 @@
 
     $(".modal #title").val(data.title);
     $(".modal #content").val(data.content);
-    $(".modal #preview_at").val(data.preview_at);
+    $(".modal #preview_at").val(data.preview_dt);
     $(".modal #address").val(data.address);
   }
 
@@ -161,7 +161,7 @@
       </div>
       
       <div class="input_box">
-        <input type="date" name="preview_at" id="preview_at" min="<?= date("Y-m-d", strtotime("+1 days")) ?>" required>
+        <input type="date" name="preview_dt" id="preview_at" min="<?= date("Y-m-d", strtotime("+1 days")) ?>" required>
         <label for="preview_at">관람 날짜</label>
       </div>
 
@@ -200,7 +200,7 @@
       </div>
       
       <div class="input_box">
-        <input type="date" name="preview_at" id="preview_at" min="<?= date("Y-m-d", strtotime("+1 days")) ?>" required>
+        <input type="date" name="preview_dt" id="preview_at" min="<?= date("Y-m-d", strtotime("+1 days")) ?>" required>
         <label for="preview_at">관람 날짜</label>
       </div>
 

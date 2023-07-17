@@ -15,7 +15,7 @@
   <header>
     <div class="wrap flex jcsb aic">
       <div class="logo_box">
-        <a href="#"><img src="./resources/img/logo.png" alt="#" title="#" class="logo"></a>
+        <a href="/"><img src="./resources/img/logo.png" alt="#" title="#" class="logo"></a>
       </div>
 
       <div class="menu_nav flex">
@@ -41,9 +41,9 @@
         <div class="depth_box">
           <a href="#" class="depth1">투어 추천</a>
           <div class="sub_menu">
-            <a href="#" class="depth2">투어 예약</a>            
+            <a href="/reservation" class="depth2">투어 예약</a>            
             <a href="#" class="depth2">투어 추천</a>            
-            <a href="#" class="depth2">추천 영상 등록</a>            
+            <a href="/video" class="depth2">추천 영상 등록</a>            
           </div>
         </div>
         <div class="depth_box">

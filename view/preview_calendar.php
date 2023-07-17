@@ -61,13 +61,19 @@
 
     for(let i = 1;i <= last;i++){
       let list = [];
-
+      
       if(today <= i){
         const data = preview.filter(v => {
-          return v.preview_dt == new Date(year, month, i).toISOString().split("T")[0]
+          return v.preview_dt == new Date(year, month, i + 1).toISOString().split("T")[0]
         });
         const d_day = today - i == 0 ? "day" : i - today;
-        list = data.map(v => `<a>${v.title} ( D - ${d_day} )</a>`);
+        dd(d_day);
+        list = data.map(v => `<a href="/reservation?idx=${v.idx}">${v.title} ( D - ${d_day} )</a>`);
+      }else{
+        const data = preview.filter(v => {
+          return v.preview_dt == new Date(year, month, i + 1).toISOString().split("T")[0]
+        });
+        list = data.map(v => `<small>${v.title}</small>`);
       }
 
       $(".calendar .main").append(`

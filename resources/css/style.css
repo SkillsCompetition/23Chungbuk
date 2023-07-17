@@ -1282,9 +1282,15 @@ input::file-selector-button{
 .calendar .main div:not(:nth-child(7n)){
   border-right: 1px solid #d1d1d1;
 }
+
+.calendar .main div small,
 .calendar .main div a{
   font-size: 14px;
   color: #335ddd;
+}
+
+.calendar .main div a{
+  cursor: pointer;
 }
 
 .preview .container{
@@ -1329,4 +1335,34 @@ input::file-selector-button{
 .preview .item .text_box small{
   color: #335ddd;
   font-weight: 900;
+}
+
+.reservation_modal input,
+.xls_modal input{
+  width: 300px;
+}
+
+.reservation_section{
+  padding: 300px 0 !important;
+}
+
+#preview_dt{
+  text-align: end;
+}
+
+.reservation_section th:nth-child(5){
+  width: 100px;
+}
+
+.preview table td p{
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.preview table td:nth-child(1) p{
+  width: 150px;
 }
