@@ -67,11 +67,19 @@ img{
   justify-content: center;
   align-items: center;
   gap: .5rem;
+  font-size: 1rem;
+  border: none;
+  white-space: nowrap;
 }
 
 .btn_box.full,
 .btn_box.full .btn{
   width: 100%;
+}
+
+.btn:disabled{
+  opacity: .5;
+  pointer-events: none;
 }
 
 /* 헤더 */
@@ -1033,4 +1041,328 @@ footer .right > i{
 
 .modify .video_box .video video{
   pointer-events: none;
+}
+
+.join_section .wrap,
+.login_section .wrap{
+  padding: 100px 0;
+  max-width: 500px;
+}
+
+.chkSign.chk{
+  background-color: #0080001f;
+}
+
+.preview{
+  gap: 1rem;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d1d1d1;
+  box-shadow: 2px 4px .5rem #335ddd1f;
+}
+
+.table th{
+  height: 40px;
+  background-color: #335ddd;
+  color: #fff;
+  border: 1px solid #d1d1d1;
+  font-weight: normal;
+}
+
+.table td{
+  height: 40px;
+  border: 1px solid #d1d1d1;
+  text-align: center;
+}
+
+.preview .paging{
+  display: flex;
+  gap: .5rem;
+  margin-top: 1rem;
+}
+
+.preview .paging a{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #335ddd0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #335ddd;
+}
+
+.preview .paging a.chk{
+  background-color: #335ddd;
+  color: #fff;
+}
+
+.modal{
+  width: 100%;
+  height: 100%;
+  background-color: #0002;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+}
+
+.modal.open{
+  display: flex;
+}
+
+.modal > div{
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.modal .fa-times-circle{
+  color: tomato;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.modal hr{
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid #d1d1d1;
+}
+
+.preview_modal input{
+  width: 500px;
+}
+
+
+input::file-selector-button{
+  background-color: #335ddd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input_box{
+  width: 100%;
+  position: relative;
+  transition: .2s;
+}
+
+.input_box label{
+  color: gray;
+  font-size: 16px;
+  white-space: nowrap;
+  position: absolute;
+  top: 22.5px;
+  left: 10px;
+  transform: translate(0, -50%);
+  transition: .2s;
+  pointer-events: none;
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+.input_box input,
+.input_box textarea{
+  width: 100%;
+  height: 45px;
+  resize: none;
+  border: none;
+  font-size: 16px;
+  outline: 1px solid #d1d1d1;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.input_box textarea{
+  height: 200px;
+  padding-top: 10px;
+}
+
+.input_box input:focus,
+.input_box textarea:focus{
+  outline: 1px solid #335ddd;
+}
+
+.input_box input[type="file"]{
+  padding: 10px 10px;
+}
+
+.input_box input[type="file"] + label,
+.input_box input[type="date"] + label,
+.input_box textarea:focus + label,
+.input_box textarea:valid + label,
+.input_box input:focus + label,
+.input_box input:valid + label{
+  top: 0px;
+  font-size: 12px;
+}
+
+.input_box input:focus + label,
+.input_box textarea:focus + label{
+  color: #335ddd;
+}
+
+.table .btn_box .btn{
+  width: 100%;
+  padding: .4rem 1.1rem;
+  font-size: 14px;
+}
+
+.table .btn_box{
+  padding: 0 10px;
+}
+
+.preview .table th:nth-child(5){
+  width: 150px;
+}
+
+.btn.green{background-color: green;}
+.btn.tomato{background-color: tomato;}
+
+.reservation_list th:nth-child(5){
+  width: 120px;
+}
+
+.calendar{
+  width: 100%;
+  gap: 1rem;
+}
+
+.calendar .top{
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.calendar .top div{
+  width: 100%;
+  height: 40px;
+  background-color: #335ddd;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar .top div:not(:last-child){
+  border-right: 1px solid #d1d1d1;
+}
+
+.calendar .main{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  box-shadow: 0 0 2rem #335ddd1a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.calendar .main div{
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  min-height: 130px;
+  padding: 20px;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.calendar .main div:not(:nth-child(7n)){
+  border-right: 1px solid #d1d1d1;
+}
+
+.calendar .main div small,
+.calendar .main div a{
+  font-size: 14px;
+  color: #335ddd;
+}
+
+.calendar .main div a{
+  cursor: pointer;
+}
+
+.preview .container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.preview .item{
+  display: flex;
+  box-shadow: 0 0 3rem #0001;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.preview .item > img{
+  height: 300px;
+}
+
+.preview .item > *{
+  width: 50%;
+}
+
+.preview .item .text_box{
+  padding: 20px;
+}
+
+.preview .item .text_box > div > p{
+  color: gray;
+  margin-top: 12px;
+}
+
+.preview .item .text_box > p{
+  color: gray;
+  font-size: 14px;
+}
+
+.preview .item .text_box h2{
+  line-height: 1;
+}
+
+.preview .item .text_box small{
+  color: #335ddd;
+  font-weight: 900;
+}
+
+.reservation_modal input,
+.xls_modal input{
+  width: 300px;
+}
+
+.reservation_section{
+  padding: 300px 0 !important;
+}
+
+#preview_dt{
+  text-align: end;
+}
+
+.reservation_section th:nth-child(5){
+  width: 100px;
+}
+
+.preview table td p{
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.preview table td:nth-child(1) p{
+  width: 150px;
 }

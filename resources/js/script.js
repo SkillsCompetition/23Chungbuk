@@ -5,19 +5,11 @@ const App = {
   init(){
     App.hook();
 
-    VideoPlayer.init();
+    if(location.pathname.includes("video")) VideoPlayer.init();
   },
 
   hook(){
     $(document)
-      .on("keydown", document, VideoPlayer.shoutCut)
-      .on("change", "#videoLoader", VideoPlayer.fileLoad)
-      .on("mousedown", ".video_box .current_bar", VideoPlayer.mouse.down)
-      .on("mouseup mouseleave", ".video_box", VideoPlayer.mouse.up)
-      .on("mousemove click", ".video_box .video", VideoPlayer.mouse.move)
-      .on("click", ".video_list .item", VideoPlayer.selectVideo)
-      .on("click", ".prev, .next", VideoPlayer.moveVideo)
-      .on("click", ".video_box .prograss .item", VideoPlayer.clickSnapshot)
   }
 
 }
@@ -43,6 +35,16 @@ const VideoPlayer = {
   },
 
   hook(){
+    $(document)
+      .on("keydown", document, VideoPlayer.shoutCut)
+      .on("change", "#videoLoader", VideoPlayer.fileLoad)
+      .on("mousedown", ".video_box .current_bar", VideoPlayer.mouse.down)
+      .on("mouseup mouseleave", ".video_box", VideoPlayer.mouse.up)
+      .on("mousemove click", ".video_box .video", VideoPlayer.mouse.move)
+      .on("click", ".video_list .item", VideoPlayer.selectVideo)
+      .on("click", ".prev, .next", VideoPlayer.moveVideo)
+      .on("click", ".video_box .prograss .item", VideoPlayer.clickSnapshot)
+
     VideoPlayer.video.addEventListener("timeupdate", () => {
       VideoPlayer.checkTimeOver();
       VideoPlayer.changeCurrentBar();
@@ -414,6 +416,26 @@ const VideoPlayer = {
 
   }
 
+}
+
+const Modal = {
+  template : (target) => $($("template")[0].content).find(`.${target}_modal`).clone(),
+
+  open(target){
+    $("body").css("overflow", "hidden");
+
+    $(".modal")
+      .addClass("open")
+      .html(Modal.template(target));
+  },
+
+  close(){
+    $("body").css("overflow", "");
+
+    $(".modal")
+      .removeClass("open")
+      .html("");
+  }
 }
 
 $(() => App.init())
